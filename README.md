@@ -4,6 +4,8 @@
 
 [displaCy.js](https://demos.explosion.ai/displacy) is a modern and service-independent visualisation library. We hope this makes it easy to compare different services, and explore your own in-house models. If you're using [spaCy](https://spacy.io)'s syntactic parser, displaCy should be part of your regular workflow. Because spaCy's parser is statistical, it's often hard to predict how it will analyse a given sentence. Using displaCy, you can simply try and see. You can also share the page for discussion with your team, or save the SVG to use elsewhere. If you're developing your own  model, you can run the service yourself — it's 100% open source.
 
+To read more about displaCy.js, check out the [blog post](https://explosion.ai/blog/displacy-js-nlp-visualizer).
+
 ## Run the demo
 
 This demo is implemented in [Jade (aka Pug)](https://www.jade-lang.org), an extensible templating language that compiles to HTML, and is built or served by [Harp](https://harpjs.com). To serve it locally on [http://localhost:9000](http://localhost:9000), simply run:
