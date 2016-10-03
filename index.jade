@@ -1,0 +1,19 @@
+//- ----------------------------------
+//- 💥 DEMOS > DISPLACY
+//- ----------------------------------
+
+include _mixins
+
+header.o-banner.o-form
+    +input("Your sentence here...")#input
+        +search#submit
+
+    +dropdown("radio", "model", "Model", { en: "English (v0.101.0)", de: "German (v0.101.0)" }, "en")
+
+    +dropdown("checkbox", "settings", "Settings", { punctuation: "Collapse Punctuation", phrases: "Collapse Phrases" }, [ "punctuation", "phrases" ])
+
+    +button("download", "Download")#download(download="displacy.svg")
+
+.o-container#displacy
+
++error("Oops, something went wrong. Please try again!")

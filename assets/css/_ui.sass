@@ -1,0 +1,262 @@
+//- ----------------------------------
+//- 💥 UI
+//- ----------------------------------
+
+$theme-bg: $color-back !default
+$theme-bg2: $color-back !default
+$theme-color: $color-front !default
+
+$field-border-radius: 0.5rem !default
+$color-error: #f44d61 !default
+
+
+//- Utilities
+
+.u-text-small.u-text-small
+    font-size: 0.85rem
+
+.u-text-medium.u-text-medium
+    font-size: 1.25rem
+
+.u-text-large.u-text-large
+    font-size: 1.75rem
+
+.u-label
+    font: normal bold 1em $font-primary
+
+.u-code.u-code
+    font-family: $font-secondary
+
+.u-heading-1
+    font: normal bold 2.75rem/#{1.375} $font-primary
+    margin-bottom: 1rem
+
+.u-heading-2
+    font: normal bold 2rem/#{1.375} $font-primary
+    margin-bottom: 0.5rem
+
+
+//- Base
+
+.o-main
+    width: 100%
+
+.o-container
+    flex: 1
+    position: relative
+    background: inherit
+    width: 100%
+
+.o-banner
+    flex: 0 0 1
+    background: $theme-bg
+    color: $theme-color
+    padding: 2rem 3rem
+    width: 100%
+
+.o-form
+    display: flex
+    flex-flow: row wrap
+
+.o-block
+    margin-bottom: 2.5rem
+
+    a
+        border-bottom: 1px solid
+
+.o-button
+    display: inline-block
+    background: $theme-color
+    box-shadow: 2px 2px 0 $theme-bg2
+    color: $theme-bg2
+    padding: 0.75em 1em
+    border-radius: $field-border-radius
+
+
+//- Components: Input
+
+.c-input
+    display: flex
+    align-items: center
+    flex-flow: row wrap
+    position: relative
+    background: $theme-bg2
+    padding: 0.5rem 1rem
+    margin: 0 0.75rem 0.75rem 0
+    border-color: $theme-bg2
+    border-radius: $field-border-radius
+    width: auto
+
+    &.c-input--full
+        flex: 1
+
+.c-input__label
+    display: flex
+    align-items: center
+    justify-content: space-between
+    cursor: pointer
+    width: 100%
+    user-select: none
+
+.c-input__field
+    flex: 1
+    font: inherit
+    background: transparent
+    color: inherit
+    line-height: 1
+    width: 100%
+
+    &.c-input__field--area
+        padding: 1rem 0.5rem
+        line-height: 1.375
+        min-height: 10rem
+        resize: vertical
+
+    &::placeholder
+        color: rgba($theme-color, 0.5)
+
+    ::selection
+        background: $theme-color
+        color: $theme-bg2
+
+.c-input__icon
+    margin-left: 0.75em
+
+.c-input__button
+    font-size: inherit
+    background: transparent
+    color: inherit
+    cursor: pointer
+
+    &.c-input__button--large
+        font-size: 1.5em
+
+.c-input__button__icon
+    @include size(1.25em)
+
+    .loading &
+        display: none
+
+.c-input__button__spinner
+    @include size(1.15em)
+    display: none
+    animation: spinner 0.5s linear infinite
+
+    .loading &
+        display: inline-block
+
+@keyframes spinner
+    to
+        transform: rotate(360deg)
+
+
+//- Components: Dropdown
+
+.c-dropdown
+    @include position(absolute, top, left, calc(100% - #{$field-border-radius}), 0)
+    background: $theme-bg2
+    display: none
+    width: 100%
+    z-index: 100
+    user-select: none
+    list-style: none
+    border-bottom-left-radius: $field-border-radius
+    border-bottom-right-radius: $field-border-radius
+    max-height: 50vh
+    overflow-y: scroll
+
+    .c-dropdown__trigger:checked + &
+        display: block
+        z-index: 10
+
+.c-dropdown__option
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: $theme-color
+    cursor: pointer
+    padding: 0.75rem
+    border-top: 1px solid darken($theme-bg2, 10)
+    line-height: 1.25
+    width: 100%
+
+    .c-dropdown__trigger:checked + &
+        font-weight: bold
+
+        .c-dropdown__option__icon
+            opacity: 1
+
+.c-dropdown__option__icon
+    flex: 1.25rem 0 0
+    opacity: 0
+
+.c-dropdown__trigger
+    display: none
+
+
+//- Components: Tooltips
+
+[data-tooltip]
+    position: relative
+    cursor: default
+
+    &:after
+        @include position(absolute, top, left, 125%, 50%)
+        display: inline-block
+        background: $theme-bg
+        border-radius: 2px
+        color: $theme-color
+        content: attr(data-tooltip)
+        font: normal normal 0.85rem $font-primary
+        opacity: 0
+        padding: 0.25em 0.5em
+        transform: translateX(-50%) translateY(-2px)
+        transition: opacity 0.1s ease-out, transform 0.1s ease-out
+        visibility: hidden
+        white-space: nowrap
+        z-index: 200
+
+    &:hover:after
+        opacity: 1
+        transform: translateX(-50%) translateY(0)
+        visibility: visible
+
+
+//- Components: Alerts
+
+.c-alert
+    @include position(fixed, bottom, right, 1rem, 1rem)
+    padding: 1rem
+    z-index: 100
+    color: $color-back
+    background: $color-front
+    font-weight: bold
+    cursor: pointer
+    line-height: 1
+    display: none
+
+    &:before
+        content: '\00d7'
+        display: inline-block
+        font-size: 1.5em
+        margin-right: 0.5em
+        transition: transform 0.05s ease
+        vertical-align: middle
+
+    &:hover:before
+        transform: scale(1.25) translateY(0.025em)
+
+    &.c-alert--is-closing
+        transform: translateX(150%)
+        transition: transform 0.2s ease
+
+    &.c-alert--error
+        background: $color-error
+
+
+
+//- Selection
+
+::selection
+    background: $theme-bg
+    color: $theme-color

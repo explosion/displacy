@@ -1,0 +1,81 @@
+//- ----------------------------------
+//- 💥 MIXINS
+//- ----------------------------------
+
+//- Error
+
+mixin error(message)
+    #error.c-alert.c-alert--error.u-text-small(onclick="this.classList.add('c-alert--is-closing'); setTimeout(function() { this.style.display = 'none'; this.classList.remove('c-alert--is-closing') }.bind(this), 2500)")=message
+
+
+//- Icon
+
+mixin icon(name, size)
+    svg.o-icon(aria-hidden="true" viewBox="0 0 20 20"  width="20" height="20" fill="currentColor")&attributes(attributes)
+        use(xlink:href="assets/img/icons.svg#icon-#{name}")
+
+
+//- Input
+
+mixin input(placeholder, label)
+    menu.c-input.c-input--full.u-text-medium
+        if label
+            label.c-input__label(for=id)=label
+
+        input.c-input__field(type="text" placeholder=placeholder autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onfocus="this.select()")&attributes(attributes)
+
+        block
+
+
+//- Textarea
+
+mixin textarea(placeholder, label)
+    menu.c-input.c-input--full.u-text-medium
+        if label
+            label.c-input__label.u-label(for=id)=label
+
+        textarea.c-input__field.c-input__field--area(type="text" placeholder=placeholder autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onfocus="this.select()")&attributes(attributes)
+
+        block
+
+
+//- Search button
+
+mixin search(size)
+    button.c-input__button(class=size ? "c-input__button--#{size}" : "" role="button")&attributes(attributes)
+        +icon("search").c-input__button__icon
+        +icon("spinner").c-input__button__spinner
+
+
+//- Dropdown
+
+mixin dropdown(type, name, label, options, checked)
+    menu.c-input&attributes(attributes)
+        label.c-input__label(for=name)=label
+            +icon("arrow-down").c-input__icon
+        input.c-dropdown__trigger(id=name type="checkbox" aria-hidden="true")
+
+        ul.c-dropdown.u-text-small
+            each option, id in options
+                li
+                    input.c-dropdown__trigger(name=name value=id id="#{name}-#{id}" type=type checked=(checked.indexOf(id) != -1))
+                    label.c-dropdown__option(for="#{name}-#{id}")=option
+                        +icon("check").c-dropdown__option__icon
+
+
+//- Button
+
+mixin button(icon, label)
+    a.c-input(role="button" aria-label=label data-tooltip=label)&attributes(attributes)
+
+        if icon
+            +icon(icon).c-input__button
+
+        block
+
+
+//- External Link
+
+mixin a(url, trusted)
+    a(href=url target="_blank" rel=(!trusted) ? "noopener nofollow" : "")&attributes(attributes)
+        block

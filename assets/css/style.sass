@@ -1,0 +1,35 @@
+//- ----------------------------------
+//- 💥 DEMOS > DISPLACY DEP
+//- ----------------------------------
+
+//- Variables
+
+$theme-bg: #272822
+$theme-bg2: desaturate(darken($theme-bg, 5), 10)
+$theme-color: #eee
+
+
+//- Imports
+
+@import base
+@import ui
+
+@import displacy-theme
+
+
+//- Container
+
+body
+    background: $theme-bg
+
+.o-main
+    display: flex
+    flex-flow: column nowrap
+    background: $theme-bg
+    overflow-x: hidden
+
+.o-banner
+    padding: 1rem 100px 0 1rem
+
+.o-container
+    overflow-x: auto

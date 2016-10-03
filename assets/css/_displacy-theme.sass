@@ -1,0 +1,28 @@
+//- ----------------------------------
+//- 💥 DISPLACY THEME
+//- ----------------------------------
+
+$displacy: ( text: #ffffff, arrow: #87908a, arrowhead: #ffffff, label: #87908a, tag: #a6e22d, tag-ent: #8e7dff, tag-verb: #e00084, tag-noun: #fd9720, tag-punct: #87908a)
+
+.displacy-word
+    font-size: 1.25rem
+    color: map-get($displacy, text)
+
+.displacy-tag
+    font: 1rem $font-secondary
+    color: map-get($displacy, tag)
+
+.displacy-label
+    font: 0.85rem $font-secondary
+    color: map-get($displacy, label)
+
+.displacy-arc
+    color: map-get($displacy, arrow)
+
+.displacy-arrowhead
+    color: map-get($displacy, arrowhead)
+
+@each $format, $tags in (spacy: (NN: tag-noun, VB: tag-verb, ".": tag-punct, ",": tag-punct), google: (NOUN: tag-noun, VERB: tag-verb, "PUNCT": tag-punct))
+    @each $tag, $color in $tags
+        [data-format="#{$format}"] .displacy-tag[data-tag^="#{$tag}"]
+            color: map-get($displacy, $color)

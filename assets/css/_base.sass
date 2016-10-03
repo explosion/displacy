@@ -1,0 +1,63 @@
+//- ----------------------------------
+//- 💥 DEMOS > BASE
+//- ----------------------------------
+
+//- Variables
+
+$font-primary: "Sailec", Helvetica, Arial, sans-serif !default
+$font-secondary: "Input Mono Compressed", Consolas, "Andale Mono", Menlo, Monaco, Courier, monospace !default
+
+$color-front: #1e1935
+$color-back: #fff
+$color-subtle: #ddd
+
+
+//- Mixins
+
+@mixin size($width, $height: $width)
+  width: $width
+  height: $height
+
+@mixin position($position, $pos-y, $pos-x, $pos-y-value, $pos-x-value)
+  position: $position
+  #{$pos-y}: $pos-y-value
+  #{$pos-x}: $pos-x-value
+
+
+//- Reset
+
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+    border: 0
+    outline: 0
+    -webkit-font-smoothing: antialiased
+
+html
+    font-family: sans-serif
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+
+    @media(min-width: 1200px)
+        font-size: 16px
+
+    @media(max-width: 1199px)
+        font-size: 12px
+
+body
+    @include size(100%)
+    background: $color-back
+    color: $color-front
+    font: normal normal 1rem/#{1.5} $font-primary
+    padding: 0
+    margin: 0
+    overflow: auto
+    min-height: 100vh
+
+a
+    color: inherit
+    text-decoration: none
+
+ul, ol
+    list-style: none
