@@ -163,6 +163,7 @@ class displaCy {
                         ],
                         children: [
                             this._el('textPath', {
+                                xlink: '#arrow-' + i,
                                 classnames: [ 'displacy-label' ],
                                 attributes: [
                                     [ 'startOffset', '50%' ],
@@ -170,13 +171,13 @@ class displaCy {
                                     [ 'text-anchor', 'middle' ],
                                     [ 'data-label', label ],
                                     [ 'data-dir', dir ]
-                                ]
+                                ],
+                                text: label
                             })
                         ]
                     }),
 
                     this._el('path', {
-                        xlink: '#arrow-' + i,
                         classnames: [ 'displacy-arrowhead' ],
                         attributes: [
                             [ 'd', `M${(dir == 'left') ? startX : endpoint},${startY + 2} L${(dir == 'left') ? startX - this.arrowWidth + 2 : endpoint + this.arrowWidth - 2},${startY - this.arrowWidth} ${(dir == 'left') ? startX + this.arrowWidth - 2 : endpoint - this.arrowWidth + 2},${startY - this.arrowWidth}` ],
