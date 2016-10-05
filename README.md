@@ -16,11 +16,23 @@ git clone https://github.com/explosion/displacy
 harp server
 ```
 
+Or simply install it from npm:
+
+```bash
+npm install displacy-demo
+```
+
 The demo is written in ECMAScript 6. For full, cross-browser compatibility, make sure to use a compiler like [Babel](https://github.com/babel/babel). For more info, see this [compatibility table](https://kangax.github.io/compat-table/es6/).
 
 ## Using displacy.js
 
-To use displaCy in your project, include [`displacy.js`](assets/js/displacy.js) and initialize a new instance specifying the API and settings:
+To use displaCy in your project, download [`displacy.js`](assets/js/displacy.js) from GitHub or via npm:
+
+```bash
+npm install displacy
+```
+
+Then include the file and initialize a new instance specifying the API and settings:
 
 ```javascript
 const displacy = new displaCy('http://localhost:8000', {
