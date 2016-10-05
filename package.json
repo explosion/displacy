@@ -1,0 +1,14 @@
+{
+  "name": "displacy",
+  "version": "1.0.0",
+  "description": "An open-source NLP visualiser for the modern web",
+  "homepage": "https://github.com/explosion/displacy",
+  "bugs": "https://github.com/explosion/displacy/issues",
+  "repository": "git@github.com:explosion/displacy.git",
+  "main": "index.jade",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ines Montani <ines@ines.io>",
+  "license": "MIT"
+}
