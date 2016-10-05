@@ -1,6 +1,6 @@
 {
   "name": "displacy-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An open-source NLP visualiser for the modern web",
   "main": "index.jade",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/explosion/displacy/issues"
   },
-  "homepage": "https://github.com/explosion/displacy#readme"
+  "homepage": "https://github.com/explosion/displacy#readme",
+  "devDependencies": {
+    "harp": "^0.20.3"
+  }
 }
