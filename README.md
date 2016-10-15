@@ -6,6 +6,8 @@
 
 To read more about displaCy.js, check out the [blog post](https://explosion.ai/blog/displacy-js-nlp-visualizer).
 
+[![npm](https://img.shields.io/npm/v/displacy.svg)](https://www.npmjs.com/package/displacy)
+
 ## Run the demo
 
 This demo is implemented in [Jade (aka Pug)](https://www.jade-lang.org), an extensible templating language that compiles to HTML, and is built or served by [Harp](https://harpjs.com). To serve it locally on [http://localhost:9000](http://localhost:9000), simply run:
