@@ -72,6 +72,7 @@ class displaCy {
 
         this.container.innerHTML = '';
         this.container.appendChild(this._el('svg', {
+            id: 'displacy-svg',
             classnames: [ 'displacy' ],
             attributes: [
                 [ 'width', width ],
