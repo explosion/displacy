@@ -129,6 +129,7 @@ class displaCy {
 
     renderArrows(arcs) {
         return arcs.map(({ label, end, start, dir, data = [] }, i) => {
+            const rand = Math.random().toString(36).substr(2, 8);
             const level = this.levels.indexOf(end - start) + 1;
             const startX = this.offsetX + start * this.distance + this.arrowSpacing * (this.highestLevel - level) / 4;
             const startY = this.offsetY;
@@ -146,7 +147,7 @@ class displaCy {
                 ],
                 children:  [
                     this._el('path', {
-                        id: 'arrow-' + i,
+                        id: 'arrow-' + rand,
                         classnames: [ 'displacy-arc' ],
                         attributes: [
                             [ 'd', `M${startX},${startY} C${startX},${curve} ${endpoint},${curve} ${endpoint},${startY}`],
@@ -164,7 +165,7 @@ class displaCy {
                         ],
                         children: [
                             this._el('textPath', {
-                                xlink: '#arrow-' + i,
+                                xlink: '#arrow-' + rand,
                                 classnames: [ 'displacy-label' ],
                                 attributes: [
                                     [ 'startOffset', '50%' ],
