@@ -7,7 +7,7 @@
 class displaCy {
     constructor (api, options) {
         this.api = api;
-        this.container = document.querySelector(options.container || '#displacy');
+        this.container = typeof(options.container) == 'string' ? document.querySelector(options.container || '#displacy') : options.container;
 
         this.format = options.format || 'spacy';
         this.defaultText = options.defaultText || 'Hello World.';
