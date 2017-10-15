@@ -73,7 +73,7 @@
     $('#submit').addEventListener('click', ev => run());
     $('#input').addEventListener('keydown', ev => (event.keyCode == 13) && run());
     $('#download').addEventListener('click', ev => $('#download').setAttribute('href', downloadSVG()).click());
-
+    $('#input').focus();
 
     // Update View
 
