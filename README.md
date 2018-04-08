@@ -2,6 +2,13 @@
 
 # displaCy.js: An open-source NLP visualiser for the modern web
 
+> ⚠️ **As of v2.0.0, the displaCy visualizers are now integrated into
+> the core library. [See here](https://spacy.io/usage/visualizers) for more 
+> details on how to visualize a `Doc` object from within spaCy. We're also
+> working on a new suite of tools for serving and testing spaCy models. The
+> code of the standalone visualizers will still be available on GitHub, just
+> not actively maintained.**
+
 [displaCy.js](https://demos.explosion.ai/displacy) is a modern and service-independent visualisation library. We hope this makes it easy to compare different services, and explore your own in-house models. If you're using [spaCy](https://spacy.io)'s syntactic parser, displaCy should be part of your regular workflow. Because spaCy's parser is statistical, it's often hard to predict how it will analyse a given sentence. Using displaCy, you can simply try and see. You can also share the page for discussion with your team, or save the SVG to use elsewhere. If you're developing your own  model, you can run the service yourself — it's 100% open source.
 
 To read more about displaCy.js, check out the [blog post](https://explosion.ai/blog/displacy-js-nlp-visualizer).
